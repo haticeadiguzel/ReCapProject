@@ -8,10 +8,10 @@ using System.Text;
 namespace DataAccess.Concrete.InMemory
 {
     
-    public class InMemoryProductDal : IProductDal
+    public class InMemoryCarDal : ICarDal
     {
         List<Car> _cars;
-        public InMemoryProductDal()
+        public InMemoryCarDal()
         {
             _cars = new List<Car>
             {
@@ -39,7 +39,7 @@ namespace DataAccess.Concrete.InMemory
         //public List<Car> GetByld(int id)
         //{return _cars.Where(c => c.Id == id).ToList();}
 
-        public List<Car> GetByld()
+        public List<Car> GetByld( )
         {
             throw new NotImplementedException();
         }
