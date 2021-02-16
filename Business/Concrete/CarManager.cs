@@ -17,11 +17,6 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public void Add()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Add(Car car)
         {
             if (car.CarName.Length > 2 && car.DailyPrice > 0)
@@ -33,6 +28,9 @@ namespace Business.Concrete
                 Console.WriteLine("Failed transaction!");
             }
         }
+        
+
+        
 
         public void Delete(Car car)
         {

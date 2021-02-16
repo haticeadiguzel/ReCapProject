@@ -11,7 +11,10 @@ namespace Console
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            
+            System.Console.WriteLine("Get cars name min 2 char: ");
+
+            System.Console.WriteLine(carManager.GetAll());
+
 
         }
     }
