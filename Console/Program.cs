@@ -9,12 +9,21 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            //CarManager carManager = new CarManager(new EfCarDal());
 
-            System.Console.WriteLine("Get cars name min 2 char: ");
+            //System.Console.WriteLine("Car Name " + "Daily Price " + "Description");
 
-            System.Console.WriteLine(carManager.GetAll());
+            //foreach (var car in carManager.GetAll())
+            //{
+            //    //System.Console.WriteLine("{0}/{1}/{2}" + car.CarName + " " + car.DailyPrice + " " + car.Description);
+            //    System.Console.WriteLine(car.CarName +" "+ car.DailyPrice + " " + car.Description);
+            //}
 
+            CarManager carmanager = new CarManager(new EfCarDal());
+            foreach (var car in carmanager.GetCarDetails())
+            {
+                System.Console.WriteLine(car.CarName+"  -   "+car.BrandName+"    -   "+car.ColorName+"  -    "+car.DailyPrice);
+            }
 
         }
     }
