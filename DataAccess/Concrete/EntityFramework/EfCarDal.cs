@@ -10,25 +10,25 @@ using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
-{
+{ 
     public class EfCarDal : EfEntityRepositoryBase<Car, CarContext>, ICarDal
     {
         public List<CarDetailDto> GetCarDetails()
         {
             using (CarContext context = new CarContext())
             {
-                var result = from car in context.Cars
+                var result = from c in context.Cars
                              join b in context.Brands
-                             on car.BrandId equals b.BrandId
-                             join co in context.Colors
-                             on car.ColorId equals co.ColorId
+                             on c.BrandId equals b.BrandId
+                             join cl in context.Colors
+                             on c.ColorId equals cl.ColorId
                              select new CarDetailDto
                              {
-                                 CarName = car.CarName,
+                                 CarId = c.CarId,
                                  BrandName = b.BrandName,
-                                 ColorName = co.ColorName,
-                                 DailyPrice = car.DailyPrice
-
+                                 ColorName = cl.ColorName,
+                                 DailyPrice = c.DailyPrice,
+                                 Description = c.Description
                              };
                 return result.ToList();
                 

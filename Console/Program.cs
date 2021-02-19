@@ -20,7 +20,7 @@ namespace Console
             //}
 
             CarManager carmanager = new CarManager(new EfCarDal());
-            foreach (var car in carmanager.GetCarDetails())
+            foreach (var car in carmanager.GetCarDetails().Data)
             {
                 System.Console.WriteLine(car.CarName+"  -   "+car.BrandName+"    -   "+car.ColorName+"  -    "+car.DailyPrice);
             }

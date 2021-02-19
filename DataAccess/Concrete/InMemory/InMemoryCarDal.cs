@@ -18,8 +18,8 @@ namespace DataAccess.Concrete.InMemory
             _cars = new List<Car>
             {
                 new Car{CarId=1, BrandId=1, ColorId=1, ModelYear=2015, DailyPrice = 150, Description="Hatasız." },
-                new Car{CarId=2, BrandId=1, ColorId=1, ModelYear=1995, DailyPrice = 100, Description="Hatasız1." },
-                new Car{CarId=3, BrandId=2, ColorId=1, ModelYear=2019, DailyPrice = 250, Description="Hatasız2." },
+                new Car{CarId=2, BrandId=1, ColorId=1, ModelYear=2000, DailyPrice = 100, Description="Hatasız1." },
+                new Car{CarId=3, BrandId=2, ColorId=1, ModelYear=2013, DailyPrice = 250, Description="Hatasız2." },
             };
         }
         public void Add(Car car)
