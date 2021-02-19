@@ -22,14 +22,15 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
-            if (car.CarName.Length > 2 && car.DailyPrice > 0)
-            {
-                return new SuccessResult(Messages.CarAdded);
-            }
-            else
-            {
-                return new ErrorResult(Messages.CarNameInvalid);
-            }
+            //if (car.CarName.Length > 2 && car.DailyPrice > 0)
+            //{
+            //    return new SuccessResult(Messages.CarAdded);
+            //}
+            //else
+            //{
+            //    return new ErrorResult(Messages.CarNameInvalid);
+            //}
+            return new SuccessResult(Messages.CarAdded);
         }
         
         public IResult Delete(Car car)
@@ -40,7 +41,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour==21)
+            if (DateTime.Now.Hour==2)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }
