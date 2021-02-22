@@ -8,6 +8,7 @@ using Entities.Concrete;
 using System.Text;
 using Core.CrossCuttingCorners.Validation;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 
 namespace Business.Concrete
 {
@@ -20,9 +21,9 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
+        [ValidationAspect(typeof(ColorValidator))]
         public IResult Add(Color color)
         {
-            ValidationTool.Validate(new ColorValidator(), color);
             _colorDal.Add(color);
             return new SuccessResult(Messages.ColorAdded);
         }
