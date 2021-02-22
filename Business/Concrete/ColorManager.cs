@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using Entities.Concrete;
 using System.Text;
+using Core.CrossCuttingCorners.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -20,6 +22,7 @@ namespace Business.Concrete
 
         public IResult Add(Color color)
         {
+            ValidationTool.Validate(new ColorValidator(), color);
             _colorDal.Add(color);
             return new SuccessResult(Messages.ColorAdded);
         }
