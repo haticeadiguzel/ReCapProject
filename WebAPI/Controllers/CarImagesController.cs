@@ -11,19 +11,19 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class CarImagesController : ControllerBase
     {
-        IUserService _userService;
+        ICarImageService _carImageService;
 
-        public UsersController(IUserService userService)
+        public CarImagesController(ICarImageService carImageService)
         {
-            _userService = userService;
+            _carImageService = carImageService;
         }
 
-        [HttpGet("getall")] // /api/users/getall
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _userService.GetAll();
+            var result = _carImageService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -31,10 +31,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("add")] //  /api/users/add
-        public IActionResult Add(User user)
+        [HttpPost("add")]
+        public IActionResult Add(CarImage carImage)
         {
-            var result = _userService.Add(user);
+            var result = _carImageService.Add(carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -42,10 +42,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("delete")] //  /api/users/delete
-        public IActionResult Delete(User user)
+        [HttpPost("delete")]
+        public IActionResult Delete(CarImage carImage)
         {
-            var result = _userService.Delete(user);
+            var result = _carImageService.Delete(carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -53,15 +53,16 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("update")] //  /api/users/update
-        public IActionResult Update(User user)
+        [HttpPost("update")]
+        public IActionResult Update(CarImage carImage)
         {
-            var result = _userService.Update(user);
+            var result = _carImageService.Update(carImage);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
+
     }
 }

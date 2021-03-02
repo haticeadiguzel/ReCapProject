@@ -13,6 +13,29 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfRentalDal : EfEntityRepositoryBase<Rental, CarContext>, IRentalDal
     {
-       
+        public List<RentalDetailDto> GetRentalDetails()
+        {
+            using (CarContext context = new CarContext())
+            {
+                var result = from c in context.Cars
+                             join r in context.Rentals
+                             on c.CarId equals r.CarId
+                             join co in context.Colors
+                             on c.ColorId equals co.ColorId
+                             join b in context.Brands
+                             on c.BrandId equals b.BrandId
+                             select new RentalDetailDto()
+                             {
+                                 RentalId = r.RentalId,
+                                 CarId = c.CarId,
+                                 BrandName = b.BrandName,
+                                 ModelYear = c.ModelYear,
+                                 DailyPrice = c.DailyPrice,
+                                 ColorName = co.ColorName,
+                                 CustomerId = r.CustomerId
+                             };
+                return result.ToList();
+            }
+        }
     }
 }

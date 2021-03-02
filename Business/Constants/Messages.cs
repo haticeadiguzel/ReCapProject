@@ -1,12 +1,14 @@
 ﻿using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
 {
     public static class Messages
     {
+        
         public static string CarAdded = "Ürün eklendi";
         public static string CarDeleted = "Ürün silindi";
         public static string CarUpdated = "Ürün güncellendi";
@@ -39,9 +41,13 @@ namespace Business.Constants
         public static string UserUpdated = "Kullanıcı güncellendi";
         public static string UserListed = "Kullanıcı listelendi";
 
+        public static string CarImageAdded = "Araba resmi eklendi";
+        public static string CarImageDeleted = "Araba resmi silindi";
+        public static string CarImageUpdated = "Araba resmi güncellendi";
+        public static string CarImageListed = "Araba resmi listelendi";
+
+
         public static string MaintenanceTime = "Sistem bakımda";
-
-
-
+        public static string AuthorizationDenied = "Yetkiniz yok";
     }
 }
